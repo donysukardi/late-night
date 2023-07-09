@@ -71,7 +71,6 @@ module.exports = {
     'no-var': 2,
     'object-curly-spacing': 0,
     'object-shorthand': 2,
-    'prefer-arrow-callback': 2,
     'prefer-const': 2,
     'react-hooks/exhaustive-deps': 2,
     'react/jsx-sort-props': 2,

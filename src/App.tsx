@@ -6,7 +6,7 @@ function ButtonSection() {
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
         <Button type="primary">Primary Button</Button>
-        <Button type="primary" ghost>
+        <Button ghost type="primary">
           Primary Ghost
         </Button>
         <Button type="default">Default Button</Button>
@@ -15,10 +15,10 @@ function ButtonSection() {
         <Button type="text">Text Button</Button>
       </div>
       <div className="flex flex-row gap-4">
-        <Button type="primary" size="large">
+        <Button size="large" type="primary">
           Large Primary Button
         </Button>
-        <Button type="primary" ghost size="large">
+        <Button ghost size="large" type="primary">
           Large Primary Ghost
         </Button>
       </div>
@@ -79,7 +79,7 @@ function Example() {
   return (
     <div className="flex flex-col gap-4 p-4">
       {sections.map(([title, Section]) => (
-        <div>
+        <div key={title}>
           <h2 className="text-2xl font-bold">{title}</h2>
           <Section />
         </div>
