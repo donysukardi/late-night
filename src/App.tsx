@@ -1,12 +1,6 @@
+import { Button } from '@/components/Button';
+import { Table } from '@/components/Table';
 import { ConfigProvider, Tag } from 'antd';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-import { Button } from './components/Button';
-import { Table } from './components/Table';
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 function ButtonSection() {
   return (

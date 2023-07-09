@@ -1,3 +1,4 @@
+import { cn } from '@/utils';
 import {
   Table as BaseTable,
   TableProps as BaseTableProps,
@@ -30,10 +31,19 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
     >
       <BaseTable<RecordType>
         {...props}
-        className="rounded-lg border border-solid border-[#E4E4E7] bg-white px-4 pt-2 [&_.ant-table-thead_.ant-table-cell]:bg-transparent [&_.ant-table-thead_.ant-table-cell]:uppercase [&_.ant-table-thead_.ant-table-cell]:text-[#B5B5C3]"
+        className={cn(
+          'rounded-lg border border-solid border-[#E4E4E7] bg-white px-4 pt-2',
+          '[&_.ant-table-thead_.ant-table-cell]:bg-transparent',
+          '[&_.ant-table-thead_.ant-table-cell]:uppercase',
+          '[&_.ant-table-thead_.ant-table-cell]:text-[#B5B5C3]',
+        )}
         pagination={{
-          className:
-            '[&_.ant-pagination-item-link]:!text-[#344054] [&_.ant-pagination-item-link]:!border-[#D0D5DD] [&_.ant-pagination-item-link]:!shadow-sm [&_.ant-pagination-item-link-icon]:!text-[#B5B5C3]',
+          className: cn(
+            '[&_.ant-pagination-item-link]:!text-[#344054]',
+            '[&_.ant-pagination-item-link]:!border-[#D0D5DD]',
+            '[&_.ant-pagination-item-link]:!shadow-sm',
+            '[&_.ant-pagination-item-link-icon]:!text-[#B5B5C3]',
+          ),
           ...props.pagination,
         }}
       />

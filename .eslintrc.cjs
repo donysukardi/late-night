@@ -19,12 +19,18 @@ module.exports = {
         'react/display-name': 0,
       },
     },
+    {
+      files: ['.eslintrc.cjs'],
+      disabled: true,
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
+    project: './tsconfig.json',
+    tsconfigRootDir: './',
   },
   plugins: [
     '@typescript-eslint',
@@ -111,6 +117,9 @@ module.exports = {
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
     },
     react: {
       version: 'detect',
