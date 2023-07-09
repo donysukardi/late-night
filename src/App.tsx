@@ -1,5 +1,11 @@
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Tag } from 'antd';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { Button } from './components/Button';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 function ButtonSection() {
   return (
@@ -66,21 +72,56 @@ function TableSection() {
   );
 }
 
+function FormSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function ChartSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function PopoverSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
 function Example() {
   const sections = [
-    ['Button', ButtonSection],
-    ['Input', InputSection],
-    ['Select', SelectSection],
-    ['Checkbox', CheckboxSection],
-    ['Radio', RadioSection],
-    ['Table', TableSection],
+    ['Button', 'Dony', ButtonSection],
+    ['Input', 'Ivan', InputSection],
+    ['Select', 'Ivan', SelectSection],
+    ['Checkbox', 'Ivan', CheckboxSection],
+    ['Radio', 'Ivan', RadioSection],
+    ['Table', 'Dony', TableSection],
+    ['Form', 'Dony', FormSection],
+    ['Chart', 'Dony', ChartSection],
+    ['Popover', 'Dony', PopoverSection],
   ] as const;
 
   return (
     <div className="flex flex-col gap-4 p-4">
-      {sections.map(([title, Section]) => (
+      {sections.map(([title, pic, Section]) => (
         <div key={title}>
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <h2 className="text-2xl font-bold">
+            {title}
+            <Tag
+              className="ml-2 align-middle"
+              color={pic === 'Dony' ? 'blue' : 'green'}
+            >
+              {pic}
+            </Tag>
+          </h2>
           <Section />
         </div>
       ))}
