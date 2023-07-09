@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
+<<<<<<< HEAD
 import {
   ConfigProvider,
   Tag,
@@ -10,6 +11,15 @@ import {
   Clock as ClockIcon,
   Sort as SortIcon,
 } from 'iconsax-react';
+=======
+import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
+import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
+import { ReactComponent as SortIcon } from '@/icons/sort.svg';
+import { ConfigProvider, Tag } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import { useState } from 'react';
+
+>>>>>>> 4effcbd (Add vuesax linear icons)
 
 function ButtonSection() {
   return (
