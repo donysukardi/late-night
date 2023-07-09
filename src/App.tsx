@@ -1,14 +1,17 @@
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
+import { Input } from '@/components/Input';
+import { Select, SelectProps } from '@/components/Select';
 import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
 import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
 import { ReactComponent as SortIcon } from '@/icons/sort.svg';
+import { ReactComponent as SearchIcon } from '@/icons/search-normal.svg';
 import {
   ConfigProvider,
-  Input, // TODO: Replace with Input from '@/components/Input';
   Tag,
 } from 'antd';
+
 
 function ButtonSection() {
   return (
@@ -44,9 +47,9 @@ function InputSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
         <Input placeholder='Enter email' />
-        <Input placeholder='Search' prefix={<SearchOutlined />} />
+        <Input placeholder='Search' prefix={<SearchIcon />} />
         <Input addonAfter='beats per minute' />
         <Input addonAfter={co2Options} />
       </div>
@@ -75,9 +78,8 @@ function SelectSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
-        <Select showSearch={false} defaultValue={options[0]} options={options}></Select>
-        <Select mode="multiple" showSearch={false} defaultValue={options[0]} options={options}></Select>
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
+        <Select mode="multiple" defaultValue={options[0]} options={options}></Select>
       </div>
     </div>
   );
