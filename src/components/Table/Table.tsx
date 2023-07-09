@@ -3,32 +3,33 @@ import {
   Table as BaseTable,
   TableProps as BaseTableProps,
   ConfigProvider,
+  ThemeConfig,
 } from 'antd';
 
 type TableProps<RecordType> = BaseTableProps<RecordType>;
+
+const customTheme: ThemeConfig = {
+  components: {
+    Pagination: {
+      borderRadius: 8,
+      colorBgContainer: '#2D5698',
+      colorPrimary: '#FFF',
+      colorPrimaryHover: '#FFF',
+      colorText: '#B5B5C3',
+    },
+    Table: {
+      colorBorder: '#E4E4E7',
+      colorTextHeading: '#B5B5C3',
+    },
+  },
+};
 
 /*
  * TODO: Pagination icon
  */
 function Table<RecordType extends object>(props: TableProps<RecordType>) {
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Pagination: {
-            borderRadius: 8,
-            colorBgContainer: '#2D5698',
-            colorPrimary: '#FFF',
-            colorPrimaryHover: '#FFF',
-            colorText: '#B5B5C3',
-          },
-          Table: {
-            colorBorder: '#E4E4E7',
-            colorTextHeading: '#B5B5C3',
-          },
-        },
-      }}
-    >
+    <ConfigProvider theme={customTheme}>
       <BaseTable<RecordType>
         {...props}
         className={cn(
