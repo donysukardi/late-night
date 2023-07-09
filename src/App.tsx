@@ -26,10 +26,64 @@ function ButtonSection() {
   );
 }
 
-function Example() {
+function InputSection() {
   return (
-    <div className="flex gap-4 p-4">
-      <ButtonSection />
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function SelectSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function CheckboxSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function RadioSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function TableSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+    </div>
+  );
+}
+
+function Example() {
+  const sections = [
+    ['Button', ButtonSection],
+    ['Input', InputSection],
+    ['Select', SelectSection],
+    ['Checkbox', CheckboxSection],
+    ['Radio', RadioSection],
+    ['Table', TableSection],
+  ] as const;
+
+  return (
+    <div className="flex flex-col gap-4 p-4">
+      {sections.map(([title, Section]) => (
+        <div>
+          <h2 className="text-2xl font-bold">{title}</h2>
+          <Section />
+        </div>
+      ))}
     </div>
   );
 }
