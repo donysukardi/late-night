@@ -1,29 +1,15 @@
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
-<<<<<<< HEAD
-import { Input } from '@/components/Input';
-import { Checkbox } from '@/components/Checkbox';
-import { Select, SelectProps } from '@/components/Select';
-import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
-import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
-import { ReactComponent as SortIcon } from '@/icons/sort.svg';
-import { ReactComponent as SearchIcon } from '@/icons/search-normal-1.svg';
-=======
->>>>>>> e7b473a (use iconsax-react)
 import {
   ConfigProvider,
   Tag,
 } from 'antd';
-<<<<<<< HEAD
-import { useState } from 'react';
-=======
 import {
   Calendar1 as CalendarIcon,
   Clock as ClockIcon,
   Sort as SortIcon,
 } from 'iconsax-react';
->>>>>>> e7b473a (use iconsax-react)
 
 function ButtonSection() {
   return (
