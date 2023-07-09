@@ -34,10 +34,6 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
         pagination={{
           className:
             '[&_.ant-pagination-item-link]:!text-[#344054] [&_.ant-pagination-item-link]:!border-[#D0D5DD] [&_.ant-pagination-item-link]:!shadow-sm [&_.ant-pagination-item-link-icon]:!text-[#B5B5C3]',
-          itemRender: (page, type, originalElement) => {
-            console.log(page);
-            return originalElement;
-          },
           ...props.pagination,
         }}
       />
