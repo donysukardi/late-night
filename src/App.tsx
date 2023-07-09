@@ -1,5 +1,8 @@
 import { Button } from '@/components/Button';
 import { Table } from '@/components/Table';
+import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
+import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
+import { ReactComponent as SortIcon } from '@/icons/sort.svg';
 import { ConfigProvider, Tag } from 'antd';
 
 function ButtonSection() {
@@ -166,8 +169,21 @@ function PopoverSection() {
   );
 }
 
+function IconSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">
+        <SortIcon />
+        <CalendarIcon />
+        <ClockIcon />
+      </div>
+    </div>
+  );
+}
+
 function Example() {
   const sections = [
+    ['Icon', 'Dony', IconSection],
     ['Button', 'Dony', ButtonSection],
     ['Input', 'Ivan', InputSection],
     ['Select', 'Ivan', SelectSection],
