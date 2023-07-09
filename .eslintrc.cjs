@@ -19,10 +19,6 @@ module.exports = {
         'react/display-name': 0,
       },
     },
-    {
-      files: ['.eslintrc.cjs'],
-      disabled: true,
-    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
