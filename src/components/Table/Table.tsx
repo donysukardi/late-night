@@ -37,6 +37,7 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
           '[&_.ant-table-thead_.ant-table-cell]:bg-transparent',
           '[&_.ant-table-thead_.ant-table-cell]:uppercase',
           '[&_.ant-table-thead_.ant-table-cell]:text-[#B5B5C3]',
+          props.className,
         )}
         pagination={{
           className: cn(
@@ -44,6 +45,9 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
             '[&_.ant-pagination-item-link]:!border-[#D0D5DD]',
             '[&_.ant-pagination-item-link]:!shadow-sm',
             '[&_.ant-pagination-item-link-icon]:!text-[#B5B5C3]',
+            typeof props.pagination === 'object'
+              ? props.pagination.className
+              : null,
           ),
           ...props.pagination,
         }}
