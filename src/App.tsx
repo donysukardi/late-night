@@ -1,6 +1,10 @@
 import { Button } from '@/components/Button';
 import { Table } from '@/components/Table';
+import { Input } from '@/components/Input';
+import { Select, SelectProps } from '@/components/Select';
 import { ConfigProvider, Tag } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+
 
 function ButtonSection() {
   return (
@@ -28,17 +32,48 @@ function ButtonSection() {
 }
 
 function InputSection() {
+  const co2Options = <Select defaultValue="kPa">
+    <Select.Option value="kPa">kPa</Select.Option>
+    <Select.Option value="torr">torr</Select.Option>
+    <Select.Option value="mmHg">mmHg</Select.Option>
+  </Select>
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
+        <Input placeholder='Enter email' />
+        <Input placeholder='Search' prefix={<SearchOutlined />} />
+        <Input addonAfter='beats per minute' />
+        <Input addonAfter={co2Options} />
+      </div>
+      <div className="flex flex-row gap-4">
+        <Input.TextArea placeholder='Pending...' rows={4} />
+      </div>
     </div>
   );
 }
 
 function SelectSection() {
+  const options: SelectProps['options'] = [
+    {
+      label: 'Jack',
+      value: 'Jack',
+    },
+    {
+      label: 'Angela Smith',
+      value: 'AngelaSmith',
+    },
+    {
+      label: 'Samantha Willi',
+      value: 'SamanthaWilli',
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
+        <Select mode="multiple" defaultValue={options[0]} options={options}></Select>
+      </div>
     </div>
   );
 }
