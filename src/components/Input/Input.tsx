@@ -5,9 +5,9 @@ type InputProps = PropsWithChildren<BaseInputProps>
 
 interface InputType extends React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>> {
     Group: typeof BaseInput['Group'];
+    Password: typeof BaseInput['Password'];
     Search: typeof BaseInput['Search'];
     TextArea: typeof BaseInput['TextArea'];
-    Password: typeof BaseInput['Password'];
 }
 
 const Input = forwardRef<InputRef, InputProps>(function Input(props, ref) {

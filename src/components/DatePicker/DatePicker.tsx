@@ -1,20 +1,27 @@
-import { DatePicker as BaseDatePicker } from "antd";
-import { PickerProps as BasePickerProps } from "antd/es/date-picker/generatePicker";
-import { Dayjs } from 'dayjs';
+import { DatePicker as BaseDatePicker, DatePickerProps as BaseDatePickerProps } from "antd";
+import { RangePickerProps } from "antd/es/date-picker/generatePicker";
+import { PickerComponentClass } from "antd/es/date-picker/generatePicker/interface";
+import { DatePickerType } from "antd/es/date-picker";
 import { Calendar1 as CalendarIcon } from "iconsax-react";
 
-type PickerProps = BasePickerProps<Dayjs> & {
-    status?: "" | "error" | "warning";
+type DatePickerProps = BaseDatePickerProps & {
+    RangePicker?: PickerComponentClass<RangePickerProps<DatePickerType> & {
+        dropdownClassName?: string | undefined;
+        popupClassName?: string | undefined;
+    }, unknown>;
     hashId?: string;
     popupClassName?: string;
     rootClassName?: string;
+    status?: "" | "error" | "warning";
 };
 
-function DatePicker(props: PickerProps) {
+function DatePicker(props: DatePickerProps) {
     const { suffixIcon = <CalendarIcon />, allowClear = false } = props;
 
     return <BaseDatePicker allowClear={allowClear} suffixIcon={suffixIcon} {...props} />;
 }
 
+DatePicker.RangePicker = BaseDatePicker['RangePicker'];
+
 export { DatePicker };
-export type { PickerProps };
+export type { DatePickerProps };

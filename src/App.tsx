@@ -5,6 +5,7 @@ import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { Select, SelectProps } from '@/components/Select';
 import { DatePicker } from '@/components/DatePicker';
+import { TimePicker } from '@/components/TimePicker';
 import {
   Calendar1 as CalendarIcon,
   Clock as ClockIcon,
@@ -44,7 +45,7 @@ function InputSection() {
     <Select.Option value="kPa">kPa</Select.Option>
     <Select.Option value="torr">torr</Select.Option>
     <Select.Option value="mmHg">mmHg</Select.Option>
-  </Select>
+  </Select>;
 
   return (
     <div className="flex flex-col gap-4">
@@ -80,8 +81,8 @@ function SelectSection() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
-        <Select showSearch={false} defaultValue={options[0]} options={options}></Select>
-        <Select mode="multiple" showSearch={false} defaultValue={options[0]} options={options}></Select>
+        <Select defaultValue={options[0]} options={options} showSearch={false}></Select>
+        <Select defaultValue={options[0]} mode="multiple" options={options} showSearch={false}></Select>
       </div >
     </div >
   );
@@ -99,13 +100,13 @@ function CheckboxSection() {
       label: "Don't use",
       value: "false",
     }
-  ]
+  ];
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
-        <Checkbox>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' target="_blank">Privacy policy</a></Checkbox>
-        <Checkbox error={hasError} onChange={() => { setError(!hasError) }}>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' target="_blank">Privacy policy</a></Checkbox>
+        <Checkbox>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' rel="noreferrer" target="_blank">Privacy policy</a></Checkbox>
+        <Checkbox error={hasError} onChange={() => { setError(!hasError); }}>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' rel="noreferrer" target="_blank">Privacy policy</a></Checkbox>
       </div>
       <div className="flex flex-row gap-4">
         <Checkbox.Group options={options} />
@@ -135,6 +136,8 @@ function DatePickerSection() {
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
         <DatePicker />
+        <DatePicker.RangePicker />
+        <TimePicker />
       </div>
     </div>
   );
