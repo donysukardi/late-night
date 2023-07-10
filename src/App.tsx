@@ -1,16 +1,17 @@
 import { Button } from '@/components/Button';
+import { Checkbox } from '@/components/Checkbox';
 import { Form } from '@/components/Form';
+import { Input } from '@/components/Input';
+import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
-import {
-  ConfigProvider,
-  Input, // TODO: Replace with Input from '@/components/Input';
-  Tag,
-} from 'antd';
+import { ConfigProvider, Tag } from 'antd';
 import {
   Calendar1 as CalendarIcon,
   Clock as ClockIcon,
+  SearchNormal1 as SearchIcon,
   Sort as SortIcon,
 } from 'iconsax-react';
+import { useState } from 'react';
 
 function ButtonSection() {
   return (
@@ -38,25 +39,112 @@ function ButtonSection() {
 }
 
 function InputSection() {
+  const co2Options = (
+    <Select defaultValue="kPa">
+      <Select.Option value="kPa">kPa</Select.Option>
+      <Select.Option value="torr">torr</Select.Option>
+      <Select.Option value="mmHg">mmHg</Select.Option>
+    </Select>
+  );
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Input placeholder="Enter email" />
+        <Input placeholder="Search" prefix={<SearchIcon size="1em" />} />
+        <Input addonAfter="beats per minute" />
+        <Input addonAfter={co2Options} />
+      </div>
+      <div className="flex flex-row gap-4">
+        <Input.TextArea placeholder="Pending..." rows={4} />
+      </div>
     </div>
   );
 }
 
 function SelectSection() {
+  const options: SelectProps['options'] = [
+    {
+      label: 'Jack',
+      value: 'Jack',
+    },
+    {
+      label: 'Angela Smith',
+      value: 'AngelaSmith',
+    },
+    {
+      label: 'Samantha Willi',
+      value: 'SamanthaWilli',
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Select
+          defaultValue={options[0]}
+          options={options}
+          showSearch={false}
+        ></Select>
+        <Select
+          defaultValue={options[0]}
+          mode="multiple"
+          options={options}
+          showSearch={false}
+        ></Select>
+      </div>
     </div>
   );
 }
 
 function CheckboxSection() {
+  const [hasError, setError] = useState(true);
+
+  const options = [
+    {
+      label: 'Use',
+      value: 'true',
+    },
+    {
+      label: "Don't use",
+      value: 'false',
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Checkbox>
+          Accept{' '}
+          <a
+            className={'text-[#2D5698]'}
+            href="https://www.google.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Privacy policy
+          </a>
+        </Checkbox>
+        <Checkbox
+          error={hasError}
+          onChange={() => {
+            setError(!hasError);
+          }}
+        >
+          Accept{' '}
+          <a
+            className={'text-[#2D5698]'}
+            href="https://www.google.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Privacy policy
+          </a>
+        </Checkbox>
+      </div>
+      <div className="flex flex-row gap-4">
+        <Checkbox.Group options={options} />
+      </div>
     </div>
   );
 }
