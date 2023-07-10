@@ -15,11 +15,19 @@ import {
 import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
 import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
 import { ReactComponent as SortIcon } from '@/icons/sort.svg';
+<<<<<<< HEAD
 import { ConfigProvider, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
 >>>>>>> 4effcbd (Add vuesax linear icons)
+=======
+import {
+  ConfigProvider,
+  Input, // TODO: Replace with Input from '@/components/Input';
+  Tag,
+} from 'antd';
+>>>>>>> e8ea24e (add Form)
 
 function ButtonSection() {
   return (
