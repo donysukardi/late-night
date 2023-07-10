@@ -15,7 +15,9 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
       ref={ref}
     />
   );
-});
+}) as typeof BaseButton;
+
+Button.Group = BaseButton.Group;
 
 export { Button };
 export type { ButtonProps };
