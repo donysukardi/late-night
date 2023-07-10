@@ -10,8 +10,12 @@ import { Select, SelectProps } from '@/components/Select';
 import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
 import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
 import { ReactComponent as SortIcon } from '@/icons/sort.svg';
+<<<<<<< HEAD
 import { ReactComponent as SearchIcon } from '@/icons/search-normal.svg';
 >>>>>>> 3d1e79c (Add Input and Select components)
+=======
+import { ReactComponent as SearchIcon } from '@/icons/search-normal-1.svg';
+>>>>>>> 9aef94b (Refactor default value)
 import {
   ConfigProvider,
   Tag,
