@@ -10,14 +10,10 @@ const customSuffixIcon = <CalendarIcon color="#667085" size="1.25em" />;
 type DatePickerProps = BaseDatePickerProps;
 
 function DatePicker(props: DatePickerProps) {
-  const { suffixIcon = customSuffixIcon, allowClear = false } = props;
+  const { suffixIcon = customSuffixIcon, allowClear = false, ...rest } = props;
 
   return (
-    <BaseDatePicker
-      allowClear={allowClear}
-      suffixIcon={suffixIcon}
-      {...props}
-    />
+    <BaseDatePicker allowClear={allowClear} suffixIcon={suffixIcon} {...rest} />
   );
 }
 

@@ -13,13 +13,16 @@ function Select<
   ValueType,
   OptionType extends BaseOptionType | DefaultOptionType,
 >(props: SelectProps<ValueType, OptionType>) {
-  const { popupMatchSelectWidth = false, suffixIcon = customSuffixIcon } =
-    props;
+  const {
+    popupMatchSelectWidth = false,
+    suffixIcon = customSuffixIcon,
+    ...rest
+  } = props;
   return (
     <BaseSelect<ValueType, OptionType>
       popupMatchSelectWidth={popupMatchSelectWidth}
       suffixIcon={suffixIcon}
-      {...props}
+      {...rest}
     />
   );
 }

@@ -14,6 +14,7 @@ const TimePicker = function TimePicker(props: TimePickerProps) {
     suffixIcon = customSuffixIcon,
     allowClear = false,
     format = 'HH:mm',
+    ...rest
   } = props;
 
   return (
@@ -21,7 +22,7 @@ const TimePicker = function TimePicker(props: TimePickerProps) {
       allowClear={allowClear}
       format={format}
       suffixIcon={suffixIcon}
-      {...props}
+      {...rest}
     />
   );
 };
@@ -31,6 +32,7 @@ const TimeRangePicker = function RangePicker(props: TimeRangePickerProps) {
     suffixIcon = customSuffixIcon,
     allowClear = false,
     format = 'HH:mm',
+    ...rest
   } = props;
 
   return (
@@ -38,7 +40,7 @@ const TimeRangePicker = function RangePicker(props: TimeRangePickerProps) {
       allowClear={allowClear}
       format={format}
       suffixIcon={suffixIcon}
-      {...props}
+      {...rest}
     />
   );
 };
