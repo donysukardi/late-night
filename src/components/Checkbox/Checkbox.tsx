@@ -13,11 +13,18 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   props,
   ref,
 ) {
-  const className = props.error
-    ? cn('[&_.ant-checkbox-inner]:border-[#DF4040]', props.className)
-    : props.className;
+  const { error, className, ...rest } = props;
 
-  return <BaseCheckbox className={className} ref={ref} {...props} />;
+  return (
+    <BaseCheckbox
+      className={cn(
+        error && '[&_.ant-checkbox-inner]:border-[#DF4040]',
+        className,
+      )}
+      ref={ref}
+      {...rest}
+    />
+  );
 }) as typeof BaseCheckbox;
 
 Checkbox.Group = BaseCheckbox['Group'];
