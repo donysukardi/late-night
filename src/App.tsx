@@ -352,6 +352,19 @@ export default function App() {
   return (
     <ConfigProvider
       theme={{
+        components: {
+          Pagination: {
+            borderRadius: 8,
+            colorBgContainer: '#2D5698',
+            colorPrimary: '#FFF',
+            colorPrimaryHover: '#FFF',
+            colorText: '#B5B5C3',
+          },
+          Table: {
+            colorBorder: '#E4E4E7',
+            colorTextHeading: '#B5B5C3',
+          },
+        },
         token: {
           colorPrimary: '#2D5698',
           colorText: '#555555',
