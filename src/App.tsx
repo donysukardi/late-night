@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
 import { DatePicker } from '@/components/DatePicker';
+import { Dropdown, MenuProps } from '@/components/Dropdown';
 import { Form } from '@/components/Form';
 import { Input } from '@/components/Input';
 import { Radio } from '@/components/Radio';
@@ -9,7 +10,7 @@ import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
 import { Upload, UploadFile, UploadProps } from '@/components/Upload';
 import { ConfigProvider, Tabs, Tag, ThemeConfig } from 'antd';
-import { SearchNormal1 as SearchIcon } from 'iconsax-react';
+import { SearchNormal1 as SearchIcon, Sort as SortIcon } from 'iconsax-react';
 // eslint-disable-next-line import/no-namespace
 import * as icons from 'iconsax-react';
 import { useMemo, useState } from 'react';
@@ -61,6 +62,36 @@ function InputSection() {
       </div>
       <div className="flex flex-row gap-4">
         <Input.TextArea placeholder="Pending..." rows={4} />
+      </div>
+    </div>
+  );
+}
+
+function DropdownSection() {
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: 'Individual',
+    },
+    {
+      key: '2',
+      label: 'Team',
+    },
+    {
+      key: '3',
+      label: 'All',
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">
+        <Dropdown menu={{ items, selectable: true }}>
+          <Button className="flex flex-row gap-4" type="default">
+            Training Format
+            <SortIcon />
+          </Button>
+        </Dropdown>
       </div>
     </div>
   );
@@ -386,6 +417,7 @@ function Example() {
     ['Button', 'Dony', ButtonSection],
     ['Input', 'Ivan', InputSection],
     ['Select', 'Ivan', SelectSection],
+    ['Dropdown', 'Ivan', DropdownSection],
     ['Checkbox', 'Ivan', CheckboxSection],
     ['Radio', 'Ivan', RadioSection],
     ['Uploader', 'Ivan', UploaderSection],
