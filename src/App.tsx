@@ -4,16 +4,25 @@ import { DatePicker } from '@/components/DatePicker';
 import { Dropdown, MenuProps } from '@/components/Dropdown';
 import { Form } from '@/components/Form';
 import { Input } from '@/components/Input';
+import { Pagination } from '@/components/Pagination';
 import { Radio } from '@/components/Radio';
 import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
 import { Upload, UploadFile, UploadProps } from '@/components/Upload';
-import { ConfigProvider, Tabs, Tag, ThemeConfig } from 'antd';
-import { SearchNormal1 as SearchIcon, Sort as SortIcon } from 'iconsax-react';
+import { ConfigProvider, Tabs, Tag, theme, ThemeConfig } from 'antd';
+import {
+  Logout as LogoutIcon,
+  Profile as ProfileIcon,
+  SearchNormal1 as SearchIcon,
+  Setting2 as SettingIcon,
+  Sort as SortIcon,
+} from 'iconsax-react';
 // eslint-disable-next-line import/no-namespace
 import * as icons from 'iconsax-react';
-import { useMemo, useState } from 'react';
+import { cloneElement, useMemo, useState } from 'react';
+
+const { useToken } = theme;
 
 function ButtonSection() {
   return (
@@ -355,6 +364,15 @@ function FormSection() {
   );
 }
 
+function PaginationSection() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Pagination pageSize={5} total={10} />
+      <Pagination pageSize={5} total={50} />
+    </div>
+  );
+}
+
 function ChartSection() {
   return (
     <div className="flex flex-col gap-4">
@@ -363,10 +381,63 @@ function ChartSection() {
   );
 }
 
-function PopoverSection() {
+function DropdownMenuSection() {
+  const items: MenuProps['items'] = [
+    {
+      icon: <ProfileIcon size="1.25em" />,
+      key: '1',
+      label: (
+        <a
+          href="https://www.antgroup.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Account Settings
+        </a>
+      ),
+    },
+    {
+      icon: <LogoutIcon size="1.25em" />,
+      key: '2',
+      label: (
+        <a
+          href="https://www.antgroup.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Logout
+        </a>
+      ),
+    },
+  ];
+
+  const { token } = useToken();
+
+  const contentStyle = {
+    backgroundColor: token.colorBgElevated,
+    borderRadius: token.borderRadiusLG,
+    boxShadow: token.boxShadowSecondary,
+  };
+
+  const menuStyle = {
+    boxShadow: 'none',
+  };
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Dropdown
+          dropdownRender={(menu) => (
+            <div style={contentStyle}>
+              <div className="px-4 pt-3 font-semibold">Settings</div>
+              {cloneElement(menu as React.ReactElement, { style: menuStyle })}
+            </div>
+          )}
+          menu={{ items }}
+        >
+          <Button icon={<SettingIcon color="#2d5698" />} type="text" />
+        </Dropdown>
+      </div>
     </div>
   );
 }
@@ -422,10 +493,11 @@ function Example() {
     ['Radio', 'Ivan', RadioSection],
     ['Uploader', 'Ivan', UploaderSection],
     ['DatePicker', 'Ivan', DatePickerSection],
+    ['Pagination', 'Dony', PaginationSection],
     ['Table', 'Dony', TableSection],
     ['Form', 'Dony', FormSection],
+    ['DropdownMenu', 'Dony', DropdownMenuSection],
     ['Chart', 'Dony', ChartSection],
-    ['Popover', 'Dony', PopoverSection],
   ] as const;
 
   return (
