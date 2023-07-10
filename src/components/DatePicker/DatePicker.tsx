@@ -14,7 +14,8 @@ type DatePickerProps = BaseDatePickerProps & {
 };
 
 function DatePicker(props: DatePickerProps) {
-  const { suffixIcon = <CalendarIcon />, allowClear = false } = props;
+  const { suffixIcon = <CalendarIcon size="1.5em" />, allowClear = false } =
+    props;
 
   return (
     <BaseDatePicker
@@ -26,7 +27,8 @@ function DatePicker(props: DatePickerProps) {
 }
 
 function DateRangePicker(props: RangePickerProps) {
-  const { suffixIcon = <CalendarIcon />, allowClear = false } = props;
+  const { suffixIcon = <CalendarIcon size="1.5em" />, allowClear = false } =
+    props;
 
   return (
     <BaseDatePicker.RangePicker

@@ -11,7 +11,7 @@ type TimePickerProps = BaseTimePickerProps & {
 
 const TimePicker = function TimePicker(props: TimePickerProps) {
   const {
-    suffixIcon = <ClockIcon />,
+    suffixIcon = <ClockIcon size="1.5em" />,
     allowClear = false,
     format = 'HH:mm',
   } = props;
@@ -28,7 +28,7 @@ const TimePicker = function TimePicker(props: TimePickerProps) {
 
 const TimeRangePicker = function RangePicker(props: TimeRangePickerProps) {
   const {
-    suffixIcon = <ClockIcon />,
+    suffixIcon = <ClockIcon size="1.5em" />,
     allowClear = false,
     format = 'HH:mm',
   } = props;
