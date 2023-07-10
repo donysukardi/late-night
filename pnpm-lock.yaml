@@ -14,6 +14,9 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  dayjs:
+    specifier: ^1.11.9
+    version: 1.11.9
   iconsax-react:
     specifier: ^0.0.8
     version: 0.0.8(react@18.2.0)

@@ -1,52 +1,18 @@
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { Select, SelectProps } from '@/components/Select';
-import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
-import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
-import { ReactComponent as SortIcon } from '@/icons/sort.svg';
-<<<<<<< HEAD
-import { ReactComponent as SearchIcon } from '@/icons/search-normal.svg';
->>>>>>> 3d1e79c (Add Input and Select components)
-=======
-import { ReactComponent as SearchIcon } from '@/icons/search-normal-1.svg';
->>>>>>> 9aef94b (Refactor default value)
-import {
-  ConfigProvider,
-  Tag,
-} from 'antd';
-<<<<<<< HEAD
+import { DatePicker } from '@/components/DatePicker';
 import {
   Calendar1 as CalendarIcon,
   Clock as ClockIcon,
   Sort as SortIcon,
+  SearchNormal1 as SearchIcon,
 } from 'iconsax-react';
-=======
-import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
-import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
-import { ReactComponent as SortIcon } from '@/icons/sort.svg';
-<<<<<<< HEAD
 import { ConfigProvider, Tag } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-
->>>>>>> 4effcbd (Add vuesax linear icons)
-=======
-import {
-  ConfigProvider,
-  Input, // TODO: Replace with Input from '@/components/Input';
-  Tag,
-} from 'antd';
->>>>>>> e8ea24e (add Form)
-
-=======
-import { useState } from 'react';
->>>>>>> d25aa09 (Add Checkbox; Default Select width;)
 
 function ButtonSection() {
   return (
@@ -116,8 +82,8 @@ function SelectSection() {
       <div className="flex flex-row gap-4">
         <Select showSearch={false} defaultValue={options[0]} options={options}></Select>
         <Select mode="multiple" showSearch={false} defaultValue={options[0]} options={options}></Select>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
@@ -167,7 +133,9 @@ function UploaderSection() {
 function DatePickerSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <DatePicker />
+      </div>
     </div>
   );
 }
