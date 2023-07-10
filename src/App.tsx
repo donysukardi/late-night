@@ -1,9 +1,11 @@
 import { Button } from '@/components/Button';
 import { Checkbox } from '@/components/Checkbox';
+import { DatePicker } from '@/components/DatePicker';
 import { Form } from '@/components/Form';
 import { Input } from '@/components/Input';
 import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
+import { TimePicker } from '@/components/TimePicker';
 import { ConfigProvider, Tag } from 'antd';
 import {
   Calendar1 as CalendarIcon,
@@ -168,7 +170,12 @@ function UploaderSection() {
 function DatePickerSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <DatePicker />
+        <DatePicker.RangePicker />
+        <TimePicker />
+        <TimePicker.RangePicker />
+      </div>
     </div>
   );
 }
