@@ -1,18 +1,16 @@
 import { Button } from '@/components/Button';
-import { Form } from '@/components/Form';
-import { Table } from '@/components/Table';
-import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
+import { Form } from '@/components/Form';
+import { Input } from '@/components/Input';
 import { Select, SelectProps } from '@/components/Select';
-import { DatePicker } from '@/components/DatePicker';
-import { TimePicker } from '@/components/TimePicker';
+import { Table } from '@/components/Table';
+import { ConfigProvider, Tag } from 'antd';
 import {
   Calendar1 as CalendarIcon,
   Clock as ClockIcon,
-  Sort as SortIcon,
   SearchNormal1 as SearchIcon,
+  Sort as SortIcon,
 } from 'iconsax-react';
-import { ConfigProvider, Tag } from 'antd';
 import { useState } from 'react';
 
 function ButtonSection() {
@@ -41,22 +39,24 @@ function ButtonSection() {
 }
 
 function InputSection() {
-  const co2Options = <Select defaultValue="kPa">
-    <Select.Option value="kPa">kPa</Select.Option>
-    <Select.Option value="torr">torr</Select.Option>
-    <Select.Option value="mmHg">mmHg</Select.Option>
-  </Select>;
+  const co2Options = (
+    <Select defaultValue="kPa">
+      <Select.Option value="kPa">kPa</Select.Option>
+      <Select.Option value="torr">torr</Select.Option>
+      <Select.Option value="mmHg">mmHg</Select.Option>
+    </Select>
+  );
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
-        <Input placeholder='Enter email' />
-        <Input placeholder='Search' prefix={<SearchIcon />} />
-        <Input addonAfter='beats per minute' />
+        <Input placeholder="Enter email" />
+        <Input placeholder="Search" prefix={<SearchIcon />} />
+        <Input addonAfter="beats per minute" />
         <Input addonAfter={co2Options} />
       </div>
       <div className="flex flex-row gap-4">
-        <Input.TextArea placeholder='Pending...' rows={4} />
+        <Input.TextArea placeholder="Pending..." rows={4} />
       </div>
     </div>
   );
@@ -81,10 +81,19 @@ function SelectSection() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
-        <Select defaultValue={options[0]} options={options} showSearch={false}></Select>
-        <Select defaultValue={options[0]} mode="multiple" options={options} showSearch={false}></Select>
-      </div >
-    </div >
+        <Select
+          defaultValue={options[0]}
+          options={options}
+          showSearch={false}
+        ></Select>
+        <Select
+          defaultValue={options[0]}
+          mode="multiple"
+          options={options}
+          showSearch={false}
+        ></Select>
+      </div>
+    </div>
   );
 }
 
@@ -93,20 +102,45 @@ function CheckboxSection() {
 
   const options = [
     {
-      label: "Use",
-      value: "true",
+      label: 'Use',
+      value: 'true',
     },
     {
       label: "Don't use",
-      value: "false",
-    }
+      value: 'false',
+    },
   ];
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
-        <Checkbox>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' rel="noreferrer" target="_blank">Privacy policy</a></Checkbox>
-        <Checkbox error={hasError} onChange={() => { setError(!hasError); }}>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' rel="noreferrer" target="_blank">Privacy policy</a></Checkbox>
+        <Checkbox>
+          Accept{' '}
+          <a
+            className={'text-[#2D5698]'}
+            href="https://www.google.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Privacy policy
+          </a>
+        </Checkbox>
+        <Checkbox
+          error={hasError}
+          onChange={() => {
+            setError(!hasError);
+          }}
+        >
+          Accept{' '}
+          <a
+            className={'text-[#2D5698]'}
+            href="https://www.google.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Privacy policy
+          </a>
+        </Checkbox>
       </div>
       <div className="flex flex-row gap-4">
         <Checkbox.Group options={options} />
@@ -134,11 +168,7 @@ function UploaderSection() {
 function DatePickerSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
-        <DatePicker />
-        <DatePicker.RangePicker />
-        <TimePicker />
-      </div>
+      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
     </div>
   );
 }
