@@ -5,11 +5,9 @@ import { ArrowDown2 as ArrowDownIcon } from 'iconsax-react';
 type SelectProps<
   ValueType = unknown,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> = BaseSelectProps<ValueType, OptionType> & {
-  Option?: (typeof BaseSelect)['Option'];
-};
+> = BaseSelectProps<ValueType, OptionType>;
 
-const customSuffixIcon = <ArrowDownIcon size="1em" />;
+const customSuffixIcon = <ArrowDownIcon color="#667085" size="1.25em" />;
 
 function Select<
   ValueType,

@@ -5,13 +5,13 @@ import {
 } from 'antd';
 import { Clock as ClockIcon } from 'iconsax-react';
 
-type TimePickerProps = BaseTimePickerProps & {
-  RangePicker?: (typeof BaseTimePicker)['RangePicker'];
-};
+const customSuffixIcon = <ClockIcon color="#667085" size="1.25em" />;
+
+type TimePickerProps = BaseTimePickerProps;
 
 const TimePicker = function TimePicker(props: TimePickerProps) {
   const {
-    suffixIcon = <ClockIcon size="1.5em" />,
+    suffixIcon = customSuffixIcon,
     allowClear = false,
     format = 'HH:mm',
   } = props;
@@ -28,7 +28,7 @@ const TimePicker = function TimePicker(props: TimePickerProps) {
 
 const TimeRangePicker = function RangePicker(props: TimeRangePickerProps) {
   const {
-    suffixIcon = <ClockIcon size="1.5em" />,
+    suffixIcon = customSuffixIcon,
     allowClear = false,
     format = 'HH:mm',
   } = props;

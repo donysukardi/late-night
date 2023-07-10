@@ -51,7 +51,10 @@ function InputSection() {
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-4">
         <Input placeholder="Enter email" />
-        <Input placeholder="Search" prefix={<SearchIcon size="1em" />} />
+        <Input
+          placeholder="Search"
+          prefix={<SearchIcon color="#667085" size="1.25em" />}
+        />
         <Input addonAfter="beats per minute" />
         <Input addonAfter={co2Options} />
       </div>
@@ -333,7 +336,7 @@ function IconSection() {
       <Input
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search"
-        prefix={<SearchIcon size="1em" />}
+        prefix={<SearchIcon color="#667085" size="1.25em" />}
         value={search}
       />
       <div className="grid grid-cols-6 gap-6">

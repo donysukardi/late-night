@@ -9,13 +9,6 @@ type CheckboxProps = PropsWithChildren<BaseCheckboxProps> & {
   error?: boolean;
 };
 
-interface CheckboxType
-  extends React.ForwardRefExoticComponent<
-    CheckboxProps & React.RefAttributes<HTMLInputElement>
-  > {
-  Group: (typeof BaseCheckbox)['Group'];
-}
-
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   props,
   ref,
@@ -25,7 +18,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
     : props.className;
 
   return <BaseCheckbox className={className} ref={ref} {...props} />;
-}) as CheckboxType;
+}) as typeof BaseCheckbox;
 
 Checkbox.Group = BaseCheckbox['Group'];
 

@@ -5,17 +5,12 @@ import {
 import { RangePickerProps } from 'antd/es/date-picker';
 import { Calendar1 as CalendarIcon } from 'iconsax-react';
 
-type DatePickerProps = BaseDatePickerProps & {
-  RangePicker?: (typeof BaseDatePicker)['RangePicker'];
-  hashId?: string;
-  popupClassName?: string;
-  rootClassName?: string;
-  status?: '' | 'error' | 'warning';
-};
+const customSuffixIcon = <CalendarIcon color="#667085" size="1.25em" />;
+
+type DatePickerProps = BaseDatePickerProps;
 
 function DatePicker(props: DatePickerProps) {
-  const { suffixIcon = <CalendarIcon size="1.5em" />, allowClear = false } =
-    props;
+  const { suffixIcon = customSuffixIcon, allowClear = false } = props;
 
   return (
     <BaseDatePicker
@@ -27,8 +22,7 @@ function DatePicker(props: DatePickerProps) {
 }
 
 function DateRangePicker(props: RangePickerProps) {
-  const { suffixIcon = <CalendarIcon size="1.5em" />, allowClear = false } =
-    props;
+  const { suffixIcon = customSuffixIcon, allowClear = false } = props;
 
   return (
     <BaseDatePicker.RangePicker
