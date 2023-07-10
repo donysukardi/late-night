@@ -14,10 +14,10 @@ const Input = forwardRef<InputRef, InputProps>(function Input(props, ref) {
     return <BaseInput ref={ref} {...props} />;
 }) as InputType;
 
-Input.Group = BaseInput.Group;
-Input.Search = BaseInput.Search;
-Input.TextArea = BaseInput.TextArea;
-Input.Password = BaseInput.Password;
+Input.Group = BaseInput['Group'];
+Input.Search = BaseInput['Search'];
+Input.TextArea = BaseInput['TextArea'];
+Input.Password = BaseInput['Password'];
 
 
 export { Input };

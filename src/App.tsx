@@ -2,8 +2,10 @@ import { Button } from '@/components/Button';
 import { Table } from '@/components/Table';
 import { Input } from '@/components/Input';
 import { Select, SelectProps } from '@/components/Select';
+import { Checkbox } from '@/components/Checkbox';
 import { ConfigProvider, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 
 function ButtonSection() {
@@ -40,7 +42,7 @@ function InputSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
+      <div className="flex flex-row gap-4">
         <Input placeholder='Enter email' />
         <Input placeholder='Search' prefix={<SearchOutlined />} />
         <Input addonAfter='beats per minute' />
@@ -71,17 +73,37 @@ function SelectSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}
-        <Select mode="multiple" defaultValue={options[0]} options={options}></Select>
+      <div className="flex flex-row gap-4">
+        <Select showSearch={false} defaultValue={options[0]} options={options}></Select>
+        <Select mode="multiple" showSearch={false} defaultValue={options[0]} options={options}></Select>
       </div>
     </div>
   );
 }
 
 function CheckboxSection() {
+  const [hasError, setError] = useState(true);
+
+  const options = [
+    {
+      label: "Use",
+      value: "true",
+    },
+    {
+      label: "Don't use",
+      value: "false",
+    }
+  ]
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Checkbox>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' target="_blank">Privacy policy</a></Checkbox>
+        <Checkbox error={hasError} onChange={() => { setError(!hasError) }}>Accept <a className={'text-[#2D5698]'} href='https://www.google.com' target="_blank">Privacy policy</a></Checkbox>
+      </div>
+      <div className="flex flex-row gap-4">
+        <Checkbox.Group options={options} />
+      </div>
     </div>
   );
 }
