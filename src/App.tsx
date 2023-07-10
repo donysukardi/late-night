@@ -7,7 +7,7 @@ import { Select, SelectProps } from '@/components/Select';
 import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
 import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
 import { ReactComponent as SortIcon } from '@/icons/sort.svg';
-import { ReactComponent as SearchIcon } from '@/icons/search-normal.svg';
+import { ReactComponent as SearchIcon } from '@/icons/search-normal-1.svg';
 import {
   ConfigProvider,
   Tag,

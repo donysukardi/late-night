@@ -6,7 +6,8 @@ type SelectProps<ValueType = any, OptionType extends BaseOptionType | DefaultOpt
 };
 
 function Select<ValueType, OptionType extends BaseOptionType | DefaultOptionType>(props: SelectProps<ValueType, OptionType>) {
-    return <BaseSelect<ValueType, OptionType> popupMatchSelectWidth={false} {...props} />;
+    const { popupMatchSelectWidth = false } = props;
+    return <BaseSelect<ValueType, OptionType> popupMatchSelectWidth={popupMatchSelectWidth} {...props} />;
 }
 
 Select.Option = BaseSelect['Option'];
