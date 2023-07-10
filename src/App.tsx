@@ -7,14 +7,11 @@ import { Radio } from '@/components/Radio';
 import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
-import { ConfigProvider, Tag } from 'antd';
-import {
-  Calendar1 as CalendarIcon,
-  Clock as ClockIcon,
-  SearchNormal1 as SearchIcon,
-  Sort as SortIcon,
-} from 'iconsax-react';
-import { useState } from 'react';
+import { ConfigProvider, Tabs, Tag, ThemeConfig } from 'antd';
+import { SearchNormal1 as SearchIcon } from 'iconsax-react';
+// eslint-disable-next-line import/no-namespace
+import * as icons from 'iconsax-react';
+import { useMemo, useState } from 'react';
 
 function ButtonSection() {
   return (
@@ -314,12 +311,41 @@ function PopoverSection() {
 }
 
 function IconSection() {
+  const [search, setSearch] = useState('');
+
+  const allEntries = useMemo(() => {
+    const iconsMap = { ...icons };
+    return Object.entries(iconsMap).map(([name, Icon]) => ({
+      Icon,
+      name,
+    }));
+  }, []);
+
+  const entries = useMemo(() => {
+    if (!search) return allEntries;
+    return allEntries.filter(({ name }) => {
+      return name.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [search, allEntries]);
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
-        <SortIcon />
-        <CalendarIcon />
-        <ClockIcon />
+      <Input
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search"
+        prefix={<SearchIcon size="1em" />}
+        value={search}
+      />
+      <div className="grid grid-cols-6 gap-6">
+        {entries.map(({ name, Icon }) => (
+          <div
+            className="flex flex-col items-center gap-2 rounded-lg border border-solid border-gray-300 p-4"
+            key={name}
+          >
+            <Icon />
+            <span>{name}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -327,7 +353,6 @@ function IconSection() {
 
 function Example() {
   const sections = [
-    ['Icon', 'Dony', IconSection],
     ['Button', 'Dony', ButtonSection],
     ['Input', 'Ivan', InputSection],
     ['Select', 'Ivan', SelectSection],
@@ -342,7 +367,7 @@ function Example() {
   ] as const;
 
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4">
       {sections.map(([title, pic, Section]) => (
         <div key={title}>
           <h2 className="text-2xl font-bold">
@@ -361,33 +386,48 @@ function Example() {
   );
 }
 
+const themeConfig: ThemeConfig = {
+  components: {
+    Pagination: {
+      borderRadius: 8,
+      colorBgContainer: '#2D5698',
+      colorPrimary: '#FFF',
+      colorPrimaryHover: '#FFF',
+      colorText: '#B5B5C3',
+    },
+    Table: {
+      colorBorder: '#E4E4E7',
+      colorTextHeading: '#B5B5C3',
+    },
+  },
+  token: {
+    colorPrimary: '#2D5698',
+    colorText: '#555555',
+    colorTextLabel: '#555555',
+    fontFamily:
+      "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  },
+};
+
 export default function App() {
+  const items = [
+    {
+      children: <Example />,
+      key: 'components',
+      label: `Components`,
+    },
+    {
+      children: <IconSection />,
+      key: 'icons',
+      label: `Icons`,
+    },
+  ];
+
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Pagination: {
-            borderRadius: 8,
-            colorBgContainer: '#2D5698',
-            colorPrimary: '#FFF',
-            colorPrimaryHover: '#FFF',
-            colorText: '#B5B5C3',
-          },
-          Table: {
-            colorBorder: '#E4E4E7',
-            colorTextHeading: '#B5B5C3',
-          },
-        },
-        token: {
-          colorPrimary: '#2D5698',
-          colorText: '#555555',
-          colorTextLabel: '#555555',
-          fontFamily:
-            "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-        },
-      }}
-    >
-      <Example />
+    <ConfigProvider theme={themeConfig}>
+      <div className="p-4">
+        <Tabs defaultActiveKey="components" items={items} />
+      </div>
     </ConfigProvider>
   );
 }
