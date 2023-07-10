@@ -1,12 +1,14 @@
 import { Button } from '@/components/Button';
+import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
 import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
 import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
 import { ReactComponent as SortIcon } from '@/icons/sort.svg';
-import { ConfigProvider, Tag } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-
+import {
+  ConfigProvider,
+  Input, // TODO: Replace with Input from '@/components/Input';
+  Tag,
+} from 'antd';
 
 function ButtonSection() {
   return (
@@ -202,7 +204,43 @@ function TableSection() {
 function FormSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <Form
+        className="flex flex-row gap-4"
+        colon={false}
+        requiredMark={false}
+        size="large"
+      >
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ message: 'Please input your username!', required: true }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ message: 'Please input your password!', required: true }]}
+        >
+          <Input />
+        </Form.Item>
+      </Form>
+      <Form layout="vertical" requiredMark={false} size="large">
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ message: 'Please input your username!', required: true }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ message: 'Please input your password!', required: true }]}
+        >
+          <Input />
+        </Form.Item>
+      </Form>
     </div>
   );
 }
@@ -278,6 +316,7 @@ export default function App() {
         token: {
           colorPrimary: '#2D5698',
           colorText: '#555555',
+          colorTextLabel: '#555555',
           fontFamily:
             "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
         },
