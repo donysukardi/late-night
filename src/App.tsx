@@ -7,6 +7,7 @@ import { Radio } from '@/components/Radio';
 import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
+import { Upload, UploadFile, UploadProps } from '@/components/Upload';
 import { ConfigProvider, Tabs, Tag, ThemeConfig } from 'antd';
 import { SearchNormal1 as SearchIcon } from 'iconsax-react';
 // eslint-disable-next-line import/no-namespace
@@ -166,9 +167,35 @@ function RadioSection() {
 }
 
 function UploaderSection() {
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
+
+  const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+  };
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Upload
+          defaultFileList={fileList}
+          fileList={fileList}
+          listType="picture-card"
+          onChange={onChange}
+        >
+          Click to upload
+        </Upload>
+      </div>
+      <div className="flex flex-row gap-4">
+        <Upload
+          defaultFileList={fileList}
+          fileList={fileList}
+          onChange={onChange}
+        >
+          <Button ghost type="primary">
+            Upload File
+          </Button>
+        </Upload>
+      </div>
     </div>
   );
 }
