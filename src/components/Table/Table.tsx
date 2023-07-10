@@ -33,7 +33,7 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
       <BaseTable<RecordType>
         {...props}
         className={cn(
-          'rounded-lg border border-solid border-[#E4E4E7] bg-white px-4 pt-2',
+          'rounded-lg border border-solid border-[#E4E4E7] bg-white',
           '[&_.ant-table-thead_.ant-table-cell]:bg-transparent',
           '[&_.ant-table-thead_.ant-table-cell]:uppercase',
           '[&_.ant-table-thead_.ant-table-cell]:text-[#B5B5C3]',
