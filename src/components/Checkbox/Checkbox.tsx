@@ -9,6 +9,12 @@ type CheckboxProps = PropsWithChildren<BaseCheckboxProps> & {
   error?: boolean;
 };
 
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  CheckboxProps & React.RefAttributes<HTMLInputElement>
+> & {
+  Group: typeof BaseCheckbox.Group;
+};
+
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   props,
   ref,
@@ -25,7 +31,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
       {...rest}
     />
   );
-}) as typeof BaseCheckbox;
+}) as CompoundedComponent;
 
 Checkbox.Group = BaseCheckbox['Group'];
 
