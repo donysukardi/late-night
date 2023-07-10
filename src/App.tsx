@@ -1,14 +1,16 @@
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 import { Table } from '@/components/Table';
-import { ReactComponent as CalendarIcon } from '@/icons/calendar-1.svg';
-import { ReactComponent as ClockIcon } from '@/icons/clock-1.svg';
-import { ReactComponent as SortIcon } from '@/icons/sort.svg';
 import {
   ConfigProvider,
   Input, // TODO: Replace with Input from '@/components/Input';
   Tag,
 } from 'antd';
+import {
+  Calendar1 as CalendarIcon,
+  Clock as ClockIcon,
+  Sort as SortIcon,
+} from 'iconsax-react';
 
 function ButtonSection() {
   return (
