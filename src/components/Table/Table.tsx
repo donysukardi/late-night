@@ -5,6 +5,7 @@ import {
   ConfigProvider,
   ThemeConfig,
 } from 'antd';
+import { paginationClassName } from '../Pagination';
 
 type TableProps<RecordType> = BaseTableProps<RecordType>;
 
@@ -41,10 +42,8 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
         )}
         pagination={{
           className: cn(
-            '[&_.ant-pagination-item-link]:!text-[#344054]',
-            '[&_.ant-pagination-item-link]:!border-[#D0D5DD]',
-            '[&_.ant-pagination-item-link]:!shadow-sm',
-            '[&_.ant-pagination-item-link-icon]:!text-[#B5B5C3]',
+            paginationClassName,
+            'px-4',
             typeof props.pagination === 'object'
               ? props.pagination.className
               : null,
@@ -55,6 +54,15 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
     </ConfigProvider>
   );
 }
+
+Table.SELECTION_COLUMN = BaseTable.SELECTION_COLUMN;
+Table.EXPAND_COLUMN = BaseTable.EXPAND_COLUMN;
+Table.SELECTION_ALL = BaseTable.SELECTION_ALL;
+Table.SELECTION_INVERT = BaseTable.SELECTION_INVERT;
+Table.SELECTION_NONE = BaseTable.SELECTION_NONE;
+Table.Column = BaseTable.Column;
+Table.ColumnGroup = BaseTable.ColumnGroup;
+Table.Summary = BaseTable.Summary;
 
 export { Table };
 export type { TableProps };
