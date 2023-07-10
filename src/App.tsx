@@ -3,6 +3,7 @@ import { Checkbox } from '@/components/Checkbox';
 import { DatePicker } from '@/components/DatePicker';
 import { Form } from '@/components/Form';
 import { Input } from '@/components/Input';
+import { Radio } from '@/components/Radio';
 import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
@@ -154,7 +155,12 @@ function CheckboxSection() {
 function RadioSection() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">{/* TODO: Add examples */}</div>
+      <div className="flex flex-row gap-4">
+        <Radio.Group>
+          <Radio value={true}>Use</Radio>
+          <Radio value={false}>Don{"'"}t Use</Radio>
+        </Radio.Group>
+      </div>
     </div>
   );
 }
