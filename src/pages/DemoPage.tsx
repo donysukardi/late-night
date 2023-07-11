@@ -521,7 +521,11 @@ function Example() {
 }
 
 function PagesSection() {
-  return <div>TODO: Add list of pages</div>;
+  return (
+    <div className="flex:col flex">
+      <a href="/login">Login Page</a>
+    </div>
+  );
 }
 
 export function DemoPage() {
