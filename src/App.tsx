@@ -1,7 +1,8 @@
+import { DemoPage } from '@/pages/DemoPage';
 import { LoginPage } from '@/pages/LoginPage';
+import { SignupPage } from '@/pages/SignupPage';
 import { ConfigProvider, ThemeConfig } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { DemoPage } from './pages/DemoPage';
 
 const themeConfig: ThemeConfig = {
   components: {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     element: <LoginPage />,
     path: '/login',
+  },
+  {
+    element: <SignupPage />,
+    path: '/signup',
   },
 ]);
 

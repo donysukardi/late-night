@@ -522,9 +522,14 @@ function Example() {
 
 function PagesSection() {
   return (
-    <div className="flex:col flex">
-      <a href="/login">Login Page</a>
-    </div>
+    <ul>
+      <li>
+        <a href="/login">Login Page</a>
+      </li>
+      <li>
+        <a href="/signup">Signup Page</a>
+      </li>
+    </ul>
   );
 }
 

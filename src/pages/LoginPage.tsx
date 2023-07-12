@@ -36,40 +36,40 @@ function LoginPage() {
           </Form.Item>
 
           <Form.Item>
-            <Form.Item
-              name="policy"
-              noStyle
-              rules={[
-                {
-                  validator: (_, value) =>
-                    value
-                      ? Promise.resolve()
-                      : Promise.reject(
-                          new Error(
-                            'Please confirm that you have read and understood the Privacy Policy',
+            <div className="flex flex-row justify-between">
+              <Form.Item
+                name="policy"
+                noStyle
+                rules={[
+                  {
+                    validator: (_, value) =>
+                      value
+                        ? Promise.resolve()
+                        : Promise.reject(
+                            new Error(
+                              'Please confirm that you have read and understood the Privacy Policy',
+                            ),
                           ),
-                        ),
-                },
-              ]}
-              valuePropName="checked"
-            >
-              <Checkbox>
-                Accept{' '}
-                <a
-                  className="text-[#2d5698]"
-                  href="https://www.skillup4u.com/privacy-policy"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Privacy policy
-                </a>
-              </Checkbox>
-            </Form.Item>
-            <span className="float-right">
+                  },
+                ]}
+                valuePropName="checked"
+              >
+                <Checkbox>
+                  Accept{' '}
+                  <a
+                    className="text-[#2d5698]"
+                    href="https://www.skillup4u.com/privacy-policy"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Privacy policy
+                  </a>
+                </Checkbox>
+              </Form.Item>
               <a className="contents text-[#2d5698]" href="#">
                 Forgot password?
               </a>
-            </span>
+            </div>
           </Form.Item>
 
           <Form.Item>
@@ -84,7 +84,7 @@ function LoginPage() {
 
           <div className="mb-12 text-center text-sm text-[#71717a]">
             {"Don't have an account? "}
-            <a className="contents font-semibold text-[#2d5698]" href="#">
+            <a className="contents font-semibold text-[#2d5698]" href="/signup">
               Sign up
             </a>
           </div>
