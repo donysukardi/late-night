@@ -6,4 +6,8 @@
   html {
     font-family: 'Poppins', system-ui, sans-serif;
   }
+  body {
+    margin: 0;
+    color: #555555;
+  }
 }

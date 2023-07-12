@@ -1,4 +1,5 @@
 import { DemoPage } from '@/pages/DemoPage';
+import { HomePage } from '@/pages/HomePage';
 import { LoginPage } from '@/pages/LoginPage';
 import { SignupPage } from '@/pages/SignupPage';
 import { ConfigProvider, ThemeConfig } from 'antd';
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     element: <SignupPage />,
     path: '/signup',
+  },
+  {
+    element: <HomePage />,
+    path: '/home',
   },
 ]);
 
