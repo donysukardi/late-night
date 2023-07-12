@@ -15,6 +15,7 @@ function Table<RecordType extends object>(props: TableProps<RecordType>) {
         'rounded-lg border border-solid border-[#E4E4E7] bg-white',
         '[&_.ant-table-thead_.ant-table-cell]:bg-transparent',
         '[&_.ant-table-thead_.ant-table-cell]:uppercase',
+        '[&_.ant-table-thead_.ant-table-cell]:font-medium',
         '[&_.ant-table-thead_.ant-table-cell]:text-[#B5B5C3]',
         props.className,
       )}
