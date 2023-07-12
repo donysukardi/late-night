@@ -10,6 +10,7 @@ import { Select, SelectProps } from '@/components/Select';
 import { Table } from '@/components/Table';
 import { TimePicker } from '@/components/TimePicker';
 import { Upload, UploadFile, UploadProps } from '@/components/Upload';
+import { cn } from '@/utils';
 import { Tabs, Tag, theme } from 'antd';
 import {
   Logout as LogoutIcon,
@@ -483,8 +484,31 @@ function IconSection() {
   );
 }
 
+function ColorsSection() {
+  const classNames =
+    'bg-primary-50 bg-primary-100 bg-primary-200 bg-primary-300 bg-primary-400 bg-primary-500 bg-primary-600 bg-primary-700 bg-primary-800 bg-primary-900';
+
+  return (
+    <div className="grid grid-cols-5 gap-4">
+      {classNames.split(' ').map((className, idx) => (
+        <div
+          className={cn(
+            'rounded-lg p-4',
+            className,
+            idx < 5 ? 'text-gray-800' : 'text-white',
+          )}
+          key={className}
+        >
+          {className.replace('bg-', '')}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Example() {
   const sections = [
+    ['Colors', 'Dony', ColorsSection],
     ['Button', 'Dony', ButtonSection],
     ['Input', 'Ivan', InputSection],
     ['Select', 'Ivan', SelectSection],
